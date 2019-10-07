@@ -1,14 +1,15 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 app.use(express.json());
-
+app.use(cors());
 app.locals.dances = [];
 
 app.locals.dances = [
-  { id: 'a1', name: 'Salsa', type: 'sexy' },
-  { id: 'b2', name: 'Hip Hop', type: 'fun' },
-  { id: 'c3', name: 'Waltz', type: 'tricky' }
+  { id: '1', name: 'Salsa', type: 'sexy' },
+  { id: '2', name: 'Hip Hop', type: 'fun' },
+  { id: '3', name: 'Waltz', type: 'tricky' }
 ];
 
 app.set('port', process.env.PORT || 3000);
