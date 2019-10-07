@@ -1,6 +1,14 @@
 const express = require('express');
 const app = express();
 
+app.locals.dances = [];
+
+app.locals.pets = [
+  { id: 'a1', name: 'Salsa', type: 'sexy' },
+  { id: 'b2', name: 'Hip Hop', type: 'fun' },
+  { id: 'c3', name: 'Waltz', type: 'tricky' }
+];
+
 app.set('port', process.env.PORT || 3000);
 app.locals.title = 'Back End 1904';
 
