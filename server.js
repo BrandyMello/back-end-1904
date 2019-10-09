@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const environment = process.env.NODE_ENV || 'development';
+const configuration = require('./knexfile')[environment];
+const database = require('knex')(configuration);
 
 app.use(express.json());
 app.use(cors());
@@ -12,7 +15,7 @@ app.locals.dances = [
   { id: '3', name: 'Waltz', type: 'tricky' }
 ];
 
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.locals.title = 'Back End 1904';
 
 app.get('/', (request, response) => {
